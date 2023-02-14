@@ -1,4 +1,8 @@
+const React = require('react')
+const Def = require('../default')
+
 function index (data) {
+  console.log('Laisla',data)
     let placesFormatted = data.places.map((place) => {
       return (
         <div>
@@ -16,5 +20,5 @@ function index (data) {
       </Def>
   )
   }
-  module.exports = index
+module.exports = index
   
