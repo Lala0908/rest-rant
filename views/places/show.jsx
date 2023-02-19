@@ -13,9 +13,6 @@ function show (data) {
                 Currently Unrated
                 
             </h3>
-            <h3>
-                Comments - No Comments as of yet!
-            </h3>
 
             <a href="" className="btn btn-warning"> 
             Edit 
@@ -24,6 +21,12 @@ function show (data) {
                 <button type="submit" className="btn btn-danger">
                     Delete
                 </button>
+            
+            <p>
+            <h3>
+                Comments - No Comments as of yet!
+            </h3>
+            </p>
             </form>
 
           </main>
