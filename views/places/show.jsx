@@ -7,15 +7,18 @@ function show (data) {
           <main>
             <h1>{ data.place.name }</h1>
 
-            <h2>
-                Rating 
-            </h2>
             <h3>
-                Comments
+                Rating -
+                
+                Currently Unrated
+                
+            </h3>
+            <h3>
+                Comments - No Comments as of yet!
             </h3>
 
             <a href="" className="btn btn-warning"> 
-            Edit
+            Edit 
             </a> 
             <form method="POST" action={`/places/${data.id}?_method=DELETE`}>
                 <button type="submit" className="btn btn-danger">
