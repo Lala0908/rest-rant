@@ -1,5 +1,6 @@
 require('dotenv').config()
 const express = require("express")
+const mongoose = require('mongoose')
 
 const app = express()
 const methodOverride = require('method-override')
@@ -15,8 +16,11 @@ app.use(methodOverride('_method'))
 //Routes
 app.use("/places", require("./controllers/places"))
 
-
-
+// db connection
+mongoose.set('strictQuery', true)
+mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
+    .then(() => console.log('DB connected'))
+    .catch(err => console.error(err));
 
 app.get('/', (req, res) => {
     res.render("home")
@@ -24,24 +28,7 @@ app.get('/', (req, res) => {
 app.get("*", (req, res) => {
     res.render('error404')
   })
-// GET /places
-// app.get('/', (req, res) => {
-//   console.log('index')
-//   let places = [{
-//     name: 'H-Thai-ML',
-//     city: 'Seattle',
-//     state: 'WA',
-//     cuisines: 'Thai, Pan-Asian',
-//     pic: 'http://placekitten.com/250/250'
-//   }, {
-//     name: 'Coding Cat Cafe',
-//     city: 'Phoenix',
-//     state: 'AZ',
-//     cuisines: 'Coffee, Bakery',
-//     pic: 'http://placekitten.com/250/250'
-//   }]
-  
-//     res.render('places/index', {places})
-  // })
+
+
   
 app.listen(process.env.PORT, console.log(process.env.PORT))
