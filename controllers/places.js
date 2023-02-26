@@ -16,7 +16,6 @@ router.get('/', (req, res)=> {
 
 router.get('/new', (req, res) => {
   res.render('places/new')
-      //res.render('places/new')
     })
 
 router.get ('/:id/edit', (req, res)=> {
@@ -24,6 +23,9 @@ router.get ('/:id/edit', (req, res)=> {
 })
 
 router.post('/', (req, res) => {
+  if (!req.body.pic) req.body.pic = undefined
+  if (!req.body.city) req.body.city = undefined
+  if (!req.body.state) req.body.state = undefined
   db.Place.create(req.body)
   .then (() => {
     res.redirect('/places')
@@ -46,7 +48,9 @@ router.post('/', (req, res) => {
 
 router.get('/:id', (req, res) => {
   db.Place.findById(req.params.id)
+  //.polulate('comments')
   .then(place => {
+    console.log(place.comments)
     res.render('places/show', { place })
   })
   .catch(err => {
