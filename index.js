@@ -27,7 +27,5 @@ app.get('/', (req, res) => {
 app.get("*", (req, res) => {
     res.render('error404')
   })
-
-//module.exports.Place = require('./places')
   
 app.listen(process.env.PORT, console.log(process.env.PORT))

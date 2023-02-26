@@ -6,7 +6,7 @@ db.Place.create([{
     state: 'WA',
     cuisines: 'Thai, Pan-Asian',
     pic:'/images/h-thai-ml-tables.jpg',
-    founded: 2020
+    founded:2020,
     },
     {
     name: 'Coding Cat Cafe',
@@ -14,6 +14,7 @@ db.Place.create([{
     state: 'AZ',
     cuisines: 'Coffee, Bakery',
     pic: '/images/coffee-cat.jpg',
+    founded: 2020,
     
 }])
 .then(() => {

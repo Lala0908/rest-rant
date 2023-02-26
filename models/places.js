@@ -3,10 +3,8 @@ const mongoose = require('mongoose')
 const placeSchema = new mongoose.Schema({
   name: {
     type: String,
-    required: true
-  },
-  pic: {
-    type: String
+    required: true,
+    pic: {type: String, default:'vijesh-datt-a9NHBQrQYHE-unsplash.jpg'}
   },
   cuisines: {
     type: String,
